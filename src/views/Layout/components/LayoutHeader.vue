@@ -10,8 +10,11 @@ const useCategory = useCategoryStore()
         <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
       <ul class="app-header-nav">
+        <li class="home">
+          <router-link to="/">首页</router-link>
+        </li>
         <li class="home" v-for="list in useCategory.categoryList" :key="list.id">
-          <RouterLink to="/">{{ list.name }}</RouterLink>
+          <RouterLink active-class="active" :to="`/category/${list.id}`">{{ list.name }}</RouterLink>
         </li>
       </ul>
       <div class="search">
