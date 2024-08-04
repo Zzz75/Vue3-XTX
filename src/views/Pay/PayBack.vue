@@ -1,25 +1,20 @@
 <script setup>
-// import { useRoute } from 'vue-router';
-// import { getOrderAPI } from '../../apis/pay';
-// import { onMounted,ref } from 'vue';
-// import { useCountDown } from '../../composables/useCountDown';
-// const route = useRoute()
-// const orderInfo = ref([])
+import { useRoute } from 'vue-router';
+import { getOrderAPI } from '../../apis/pay';
+import { onMounted,ref } from 'vue';
+const route = useRoute()
+const orderInfo = ref([])
 
-// 倒计时
-// const {formatTime,start} = useCountDown()
-// start(120)
-// const getOrderInfo = async () => {
-//   const res = await getOrderAPI(route.query.orderId)
-//   orderInfo.value = res.result
-// }
-// onMounted(()=>{getOrderInfo()})
+const getOrderInfo = async () => {
+  const res = await getOrderAPI(route.query.orderId)
+  orderInfo.value = res.result
+}
+onMounted(()=>{getOrderInfo()})
 
 </script>
 
 
 <template>
-    <!-- {{ formatTime }} -->
   <div class="xtx-pay-page">
     <div class="container">
       <!-- 支付结果 -->
